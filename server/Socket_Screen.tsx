@@ -7,6 +7,7 @@ import React from "react";
 import { initialUpdaterRun } from "react-native-reanimated/lib/types/lib/reanimated2/animation";
 
 export default function Socket_Screen() {
+  //sda
   console.log("---------Socket Screen----------");
   const initializeSocket = () => {
     console.log("Initialize");
