@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity, ScrollView } from "react-native";
+import { TouchableOpacity, Image, ScrollView } from "react-native";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import axios from "react-native-axios";
-import { View, Text, Box } from "native-base";
+import { View, Text, Center, Icon, HStack, Box } from "native-base";
 let End_user_Id = "";
 let End_user_Name = "";
 export default function Contacts({ navigation }) {
@@ -44,7 +45,42 @@ export default function Contacts({ navigation }) {
                   console.log(End_user_Id)
                 )}
               >
-                <Text marginLeft={5}>{user.email}</Text>
+                <HStack style={{ alignItems: "center" }}>
+                  {user.Image === "" ? (
+                    <Center
+                      style={{
+                        marginLeft: 18,
+                        height: 60,
+                        width: 60,
+                        borderRadius: 100,
+                        backgroundColor: "silver",
+                      }}
+                    >
+                      <Icon
+                        as={Ionicons}
+                        name="person-circle-outline"
+                        onPress={() => navigation.goBack()}
+                        size={16}
+                        color={"black.700"}
+                      />
+                    </Center>
+                  ) : (
+                    <Image
+                      style={{
+                        marginLeft: 10,
+                        height: 60,
+                        width: 60,
+                        borderRadius: 100,
+                      }}
+                      source={{
+                        uri: `data:image/png;base64,${user.Image}`,
+                      }}
+                    />
+                  )}
+                  <Text style={{ height: 40 }} marginLeft={5}>
+                    {user.email}
+                  </Text>
+                </HStack>
               </TouchableOpacity>
             </Box>
           );
