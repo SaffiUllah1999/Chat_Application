@@ -1,14 +1,14 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add axios
+  C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add expo-image-picker@~14.1.1
 
 PATH: 
-  D:\React_Native\Instagram\node_modules\.bin;D:\Vmware\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Java\jdk-15.0.2\bin;C:\Users\DELL\AppData\Local\Android\Sdk\platform-tools;C:\ProgramData\chocolatey\bin;C:\xampp\php;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\DELL\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Matlab\bin;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\DELL\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\DELL\AppData\Local\Programs\Python\Python37\;C:\Users\DELL\AppData\Local\Microsoft\WindowsApps;C:\Users\DELL\AppData\Roaming\npm;C:\Users\DELL\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\DELL\AppData\Local\Android\Sdk\platform-tools;C:\xampp\php;E:\heruko\heroku\bin;E:\heruko\bin;C:\Program Files\heroku\bin;C:\Users\DELL\AppData\Local\GitHubDesktop\bin;C:\Users\DELL\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\MinGW\bin;;F:\Disk D\UrgBenriPlus;D:\UrgBenriPlus;C:\Program Files\Azure Data Studio\bin;C:\Users\DELL\.dotnet\tools
+  D:\React_Native\Instagram\node_modules\.bin;D:\React_Native\Instagram\node_modules\.bin;D:\React_Native\node_modules\.bin;D:\node_modules\.bin;C:\Users\DELL\AppData\Roaming\nvm\v18.16.0\node_modules\npm\node_modules\@npmcli\run-script\lib\node-gyp-bin;D:\Vmware\bin\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Java\jdk-15.0.2\bin;C:\Users\DELL\AppData\Local\Android\Sdk\platform-tools;C:\ProgramData\chocolatey\bin;C:\xampp\php;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\DELL\AppData\Roaming\nvm;C:\Program Files\nodejs;D:\Matlab\bin;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Users\DELL\AppData\Local\Programs\Python\Python37\Scripts\;C:\Users\DELL\AppData\Local\Programs\Python\Python37\;C:\Users\DELL\AppData\Local\Microsoft\WindowsApps;C:\Users\DELL\AppData\Roaming\npm;C:\Users\DELL\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\DELL\AppData\Local\Android\Sdk\platform-tools;C:\xampp\php;E:\heruko\heroku\bin;E:\heruko\bin;C:\Program Files\heroku\bin;C:\Users\DELL\AppData\Local\GitHubDesktop\bin;C:\Users\DELL\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\MinGW\bin;;F:\Disk D\UrgBenriPlus;D:\UrgBenriPlus;C:\Program Files\Azure Data Studio\bin;C:\Users\DELL\.dotnet\tools
 
 Yarn version: 
   1.22.10
 
 Node version: 
-  14.19.1
+  18.16.0
 
 Platform: 
   win32 x64
@@ -38,10 +38,10 @@ npm manifest:
     "dependencies": {
       "@ionic-native/http": "^5.36.0",
       "@react-native-masked-view/masked-view": "0.2.8",
+      "@react-native-picker/picker": "^2.4.10",
       "@react-navigation/native": "^6.1.6",
       "@react-navigation/stack": "^6.3.16",
       "@types/react": "~18.0.27",
-      "bcrypt": "^5.1.0",
       "expo": "^48.0.0",
       "expo-location": "~15.1.1",
       "expo-status-bar": "~1.4.4",
@@ -50,6 +50,7 @@ npm manifest:
       "react-dom": "18.2.0",
       "react-native": "0.71.4",
       "react-native-axios": "^0.17.1",
+      "react-native-bcrypt": "^2.4.0",
       "react-native-floating-label-input": "^1.4.2",
       "react-native-gesture-handler": "~2.9.0",
       "react-native-gifted-chat": "^2.0.1",
@@ -61,16 +62,20 @@ npm manifest:
       "react-native-safe-area-context": "4.5.0",
       "react-native-screens": "~3.20.0",
       "react-native-svg": "13.4.0",
+      "react-native-sweet-alert": "^3.5.0",
       "react-native-web": "~0.18.11",
       "socket.io": "^4.6.1",
       "socket.io-client": "^4.6.1",
+      "socket.io-p2p": "^2.2.0",
       "typescript": "^4.9.4",
       "util": "^0.12.5",
       "uuidv4": "^6.2.13"
     },
     "devDependencies": {
       "@babel/core": "^7.20.0",
-      "@types/react-native": "^0.71.5"
+      "@types/bcrypt": "^5.0.0",
+      "@types/react-native": "^0.71.5",
+      "@types/socket.io-p2p": "^2.2.2"
     },
     "bugs": {
       "url": "https://github.com/GeekyAnts/nativebase-templates/issues"

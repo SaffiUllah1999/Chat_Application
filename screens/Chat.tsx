@@ -6,22 +6,20 @@ import {
   Heading,
   Box,
   TextArea,
+  KeyboardAvoidingView,
   Pressable,
   View,
   Input,
   Text,
   Button,
+  HStack,
+  VStack,
 } from "native-base";
 import axios from "react-native-axios";
 import { User_ID, User_Email } from "./Login";
 import { End_user_Id, End_user_Name } from "./Contacts";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import {
-  Keyboard,
-  KeyboardAvoidingView,
-  ScrollView,
-  TextInput,
-} from "react-native";
+import { Keyboard, Platform, ScrollView, TextInput } from "react-native";
 
 export default function Chat() {
   //console.log("ID" + User_ID);
@@ -166,73 +164,181 @@ export default function Chat() {
   };
 
   return (
-    <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-      <View>
-        <View
-          style={{
-            height: "10%",
-            alignContent: "center",
-            justifyContent: "center",
-            marginLeft: 20,
-          }}
-        >
-          <Heading>{End_user_Name}</Heading>
+    <>
+      {Platform.OS === "ios" ? (
+        <View height={"100%"}>
+          {/* Header */}
+          <View
+            style={{
+              height: "10%",
+              alignContent: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Heading style={{ position: "absolute" }}>{End_user_Name}</Heading>
+          </View>
+
+          {/* Messages */}
+          <KeyboardAvoidingView behavior="padding" h={{ lg: "auto" }}>
+            <VStack flex={"1"} justifyContent="flex-end" w="100%">
+              <View>
+                {message
+                  ? message.flat()?.map((index) => {
+                      const formattedDate = Date_format(new Date(index.date));
+
+                      return (
+                        <View
+                          key={index?._id}
+                          style={{
+                            alignItems:
+                              index?.sender === false ? "flex-end" : "baseline",
+                          }}
+                        >
+                          <View
+                            style={{
+                              marginTop: 8,
+                              alignItems: "baseline",
+                            }}
+                          >
+                            <View
+                              justifyContent={"center"}
+                              style={{
+                                height: 40,
+                                marginRight: 10,
+                                backgroundColor:
+                                  index?.sender === false
+                                    ? "lightblue"
+                                    : "lightgreen",
+                                borderTopLeftRadius: 20,
+                                borderBottomLeftRadius: 20,
+                                borderTopRightRadius: 20,
+                              }}
+                            >
+                              <Text style={{ marginLeft: 7, marginRight: 7 }}>
+                                {index?.body}
+                              </Text>
+                            </View>
+                            <Text
+                              fontSize={"xs"}
+                              italic
+                              style={{ color: "grey" }}
+                            >
+                              {formattedDate}
+                            </Text>
+                          </View>
+                        </View>
+                      );
+                    })
+                  : ""}
+
+                <Box
+                  style={{
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                  }}
+                >
+                  <Input
+                    onChangeText={(v) => setTextmessages(v)}
+                    placeholder="Enter Message...."
+                    InputRightElement={
+                      <Pressable onPress={() => On_Send_Message()}>
+                        <Icon
+                          as={<Ionicons name={"send"} />}
+                          size={8}
+                          mr="2"
+                          color="black.800"
+                        />
+                      </Pressable>
+                    }
+                    value={textmessages}
+                  />
+                </Box>
+              </View>
+            </VStack>
+          </KeyboardAvoidingView>
         </View>
+      ) : (
+        <View height={"100%"}>
+          <HStack
+            style={{
+              marginTop: "10%",
+            }}
+          >
+            <Heading
+              style={{
+                backgroundColor: "#088F8F",
+                width: "100%",
+              }}
+            >
+              {End_user_Name}
+            </Heading>
+          </HStack>
 
-        <View height={"90%"}>
-          <ScrollView>
-            {message
-              ? message.flat()?.map((index) => {
-                  const formattedDate = Date_format(new Date(index.date));
+          <View
+            style={{
+              height: "90%",
+              alignContent: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ScrollView>
+              {message
+                ? message.flat()?.map((index) => {
+                    const formattedDate = Date_format(new Date(index.date));
 
-                  return (
-                    <View
-                      key={index?._id}
-                      style={{
-                        alignItems:
-                          index?.sender === false ? "flex-end" : "baseline",
-                      }}
-                    >
+                    return (
                       <View
+                        key={index?._id}
                         style={{
-                          marginTop: 8,
-                          alignItems: "baseline",
+                          alignItems:
+                            index?.sender === false ? "flex-end" : "baseline",
                         }}
                       >
                         <View
-                          justifyContent={"center"}
                           style={{
-                            height: 40,
-                            marginRight: 10,
-                            backgroundColor:
-                              index?.sender === false
-                                ? "lightblue"
-                                : "lightgreen",
-                            borderTopLeftRadius: 20,
-                            borderBottomLeftRadius: 20,
-                            borderTopRightRadius: 20,
+                            marginTop: 8,
+                            alignItems: "baseline",
                           }}
                         >
-                          <Text style={{ marginLeft: 7, marginRight: 7 }}>
-                            {index?.body}
+                          <View
+                            justifyContent={"center"}
+                            style={{
+                              height: 40,
+                              marginRight: 10,
+                              backgroundColor:
+                                index?.sender === false
+                                  ? "lightblue"
+                                  : "lightgreen",
+                              borderTopLeftRadius: 20,
+                              borderBottomLeftRadius: 20,
+                              borderTopRightRadius: 20,
+                            }}
+                          >
+                            <Text style={{ marginLeft: 7, marginRight: 7 }}>
+                              {index?.body}
+                            </Text>
+                          </View>
+                          <Text
+                            fontSize={"xs"}
+                            italic
+                            style={{ color: "grey" }}
+                          >
+                            {formattedDate}
                           </Text>
                         </View>
-                        <Text fontSize={"xs"} italic style={{ color: "grey" }}>
-                          {formattedDate}
-                        </Text>
                       </View>
-                    </View>
-                  );
-                })
-              : ""}
-          </ScrollView>
-
-          <View height={"10%"}>
+                    );
+                  })
+                : ""}
+            </ScrollView>
+          </View>
+          <View style={{ position: "absolute", bottom: 0, left: 0, right: 0 }}>
             <Input
-              multiline
+              style={{ backgroundColor: "#fff" }}
               onChangeText={(v) => setTextmessages(v)}
               placeholder="Enter Message...."
-              style={{ marginBottom: 2, height: "100%" }}
               InputRightElement={
                 <Pressable onPress={() => On_Send_Message()}>
                   <Icon
@@ -247,7 +353,7 @@ export default function Chat() {
             />
           </View>
         </View>
-      </View>
-    </KeyboardAvoidingView>
+      )}
+    </>
   );
 }

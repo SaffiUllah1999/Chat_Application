@@ -8,6 +8,7 @@ import Contacts from "../screens/Contacts";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import Test from "../screens/Test";
 const StackNavigation = createStackNavigator();
 
 export default function Stack() {
@@ -25,6 +26,7 @@ export default function Stack() {
         <StackNavigation.Screen name="Home" component={Home} />
         <StackNavigation.Screen name="Chat" component={Chat} />
         <StackNavigation.Screen name="Profile" component={Profile} />
+        <StackNavigation.Screen name="Test" component={Test} />
       </StackNavigation.Navigator>
     </NavigationContainer>
   );

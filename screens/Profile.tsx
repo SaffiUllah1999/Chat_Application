@@ -1,6 +1,9 @@
 import React from "react";
-import { Avatar, View, Icon } from "native-base";
+import { Avatar, View, Icon, Center } from "native-base";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { User_ID, User_Email } from "./Login";
+import { TouchableOpacity } from "react-native-gesture-handler";
+
 export default function Profile({ navigation }) {
   return (
     <View style={{ marginTop: 10 }}>
@@ -11,16 +14,34 @@ export default function Profile({ navigation }) {
         size={10}
         color={"black.700"}
       />
-      <Avatar
+      <Center
         bg="pink.600"
         alignSelf="center"
         size="2xl"
-        source={{
-          uri: "https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2876&q=80",
+        style={{ borderRadius: 100 }}
+      ></Center>
+      <View
+        style={{
+          width: "100%",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        GG
-      </Avatar>
+        <TouchableOpacity>
+          <Center
+            size="xs"
+            style={{ backgroundColor: "silver", borderRadius: 50 }}
+          >
+            <Icon
+              as={Ionicons}
+              name="camera"
+              onPress={() => navigation.goBack()}
+              size={7}
+              color={"black.700"}
+            />
+          </Center>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

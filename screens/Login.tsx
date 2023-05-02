@@ -11,15 +11,19 @@ import {
   Box,
   View,
 } from "native-base";
+
 import * as Location from "expo-location";
 import { FloatingLabelInput } from "react-native-floating-label-input";
 import swal from "react-native-sweet-alert";
 import axios from "react-native-axios";
 import bcrypt from "react-native-bcrypt";
+
 let User_ID = "";
 let User_Email = "";
+let User_Image = "";
 
 export default function Login({ navigation }) {
+
   const [status, requestPermission] = Location.useBackgroundPermissions();
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");

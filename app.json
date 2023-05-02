@@ -17,12 +17,20 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "expo-image-picker":
+      {
+        "photosPermission": "The app accesses your photos to let you share them with your friends."
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
+      },
+      "expo-image-picker":
+      {
+        "photosPermission": "The app accesses your photos to let you share them with your friends."
       }
     },
     "web": {
