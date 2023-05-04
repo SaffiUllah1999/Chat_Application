@@ -1,5 +1,4 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { GiftedChat } from "react-native-gifted-chat";
 import Socket_Screen, { socket, io } from "../server/Socket_Screen";
 import {
   Icon,
@@ -19,7 +18,7 @@ import axios from "react-native-axios";
 import { User_ID, User_Email } from "./Login";
 import { End_user_Id, End_user_Name } from "./Contacts";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import { Keyboard, Platform, ScrollView, TextInput } from "react-native";
+import { Keyboard, Image, Platform, ScrollView, TextInput } from "react-native";
 
 export default function Chat() {
   //console.log("ID" + User_ID);
@@ -35,6 +34,25 @@ export default function Chat() {
   const [data, setData] = useState([]);
   const baseUrl = "http://172.16.10.58:3000/";
   const [keyboardStatus, setKeyboardStatus] = useState("");
+  const [user, setUser] = useState("");
+
+  useEffect(() => {
+    let dataSet = {
+      _id: End_user_Id,
+    };
+
+    axios
+      .post("http://172.16.10.58:3000/DisplayImage", dataSet)
+      .then(function (response) {
+        let api = response.data;
+        console.log("Data == > :" + JSON.stringify(api[0].Image));
+        setUser(api[0].Image);
+        ``;
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
@@ -152,7 +170,7 @@ export default function Chat() {
       });
   };
 
-  console.log("All Data to Map == > :" + JSON.stringify(message));
+  // console.log("All Data to Map == > :" + JSON.stringify(message));
 
   const Date_format = (date) => {
     const weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -263,12 +281,36 @@ export default function Chat() {
         <View height={"100%"}>
           <HStack
             style={{
-              marginTop: "10%",
+              backgroundColor: "green",
+              borderTopWidth: 20,
             }}
           >
+            {user === "" ? (
+              <Image
+                style={{
+                  backgroundColor: "silver",
+                  marginLeft: 10,
+                  height: 40,
+                  width: 40,
+                  borderRadius: 100,
+                }}
+                source={require("../assets/profile_Logo-removebg-preview.png")}
+              />
+            ) : (
+              <Image
+                style={{
+                  marginLeft: 10,
+                  height: 60,
+                  width: 60,
+                  borderRadius: 100,
+                }}
+                source={{
+                  uri: `data:image/png;base64,${user}`,
+                }}
+              />
+            )}
             <Heading
               style={{
-                backgroundColor: "#088F8F",
                 width: "100%",
               }}
             >

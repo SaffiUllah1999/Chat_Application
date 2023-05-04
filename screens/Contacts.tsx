@@ -47,23 +47,16 @@ export default function Contacts({ navigation }) {
               >
                 <HStack style={{ alignItems: "center" }}>
                   {user.Image === "" ? (
-                    <Center
+                    <Image
                       style={{
-                        marginLeft: 18,
+                        backgroundColor: "silver",
+                        marginLeft: 10,
                         height: 60,
                         width: 60,
                         borderRadius: 100,
-                        backgroundColor: "silver",
                       }}
-                    >
-                      <Icon
-                        as={Ionicons}
-                        name="person-circle-outline"
-                        onPress={() => navigation.goBack()}
-                        size={16}
-                        color={"black.700"}
-                      />
-                    </Center>
+                      source={require("../assets/profile_Logo-removebg-preview.png")}
+                    />
                   ) : (
                     <Image
                       style={{
